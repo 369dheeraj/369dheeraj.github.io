@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Math Quiz - Fun Learning!</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f9ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #4ecdc4;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            color: #ffd166;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        .quiz-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .question-section {
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2a9d8f;
+        }
+        
+        .question-number {
+            background-color: #ffd166;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 20px;
+        }
+        
+        .answer-input {
+            width: 80px;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 15px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .submit-btn:hover {
+            background-color: #ff8e8e;
+            transform: translateY(-3px);
+        }
+        
+        .result-section {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #e9f5db;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .result-title {
+            color: #2a9d8f;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .score {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin: 20px 0;
+        }
+        
+        .correct {
+            color: #2a9d8f;
+        }
+        
+        .wrong {
+            color: #ff6b6b;
+        }
+        
+        .restart-btn {
+            background-color: #4ecdc4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .restart-btn:hover {
+            background-color: #2a9d8f;
+        }
+        
+        .ad-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .coppa-notice {
+            background-color: #fff9c4;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            border-left: 5px solid #ffd166;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .question {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kids Math Quiz</h1>
+            <div class="subtitle">Practice Addition & Subtraction!</div>
+        </header>
+        
+        <div class="coppa-notice">
+            <strong>COPPA Compliant:</strong> This website is designed for children and complies with COPPA regulations. We do not collect personal information from children under 13.
+        </div>
+        
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="question-section" id="addition-questions">
+                <h2>Addition Problems</h2>
+                <!-- Addition questions will be generated here -->
+            </div>
+            
+            <div class="question-section" id="subtraction-questions">
+                <h2>Subtraction Problems</h2>
+                <!-- Subtraction questions will be generated here -->
+            </div>
+            
+            <button class="submit-btn" id="submit-btn">Check My Answers!</button>
+            
+            <div class="result-section" id="result-section">
+                <h2 class="result-title">Your Results</h2>
+                <div class="score" id="score">0/10</div>
+                <div id="correct-count" class="correct"></div>
+                <div id="wrong-count" class="wrong"></div>
+                <button class="restart-btn" id="restart-btn">Try Again!</button>
+            </div>
+        </div>
+        
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <footer>
+            <p>Kids Math Quiz &copy; 2023 | COPPA Compliant | Designed for Children</p>
+        </footer>
+    </div>
+
+    <script>
+        // Generate random two-digit numbers
+        function getRandomTwoDigit() {
+            return Math.floor(Math.random() * 90) + 10;
+        }
+        
+        // Generate questions
+        function generateQuestions() {
+            const additionContainer = document.getElementById('addition-questions');
+            const subtractionContainer = document.getElementById('subtraction-questions');
+            
+            // Clear previous questions
+            additionContainer.innerHTML = '<h2>Addition Problems</h2>';
+            subtractionContainer.innerHTML = '<h2>Subtraction Problems</h2>';
+            
+            // Generate 5 addition questions
+            for (let i = 1; i <= 5; i++) {
+                const num1 = getRandomTwoDigit();
+                const num2 = getRandomTwoDigit();
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <span class="question-number">${i}</span>
+                    ${num1} + ${num2} = 
+                    <input type="number" class="answer-input" id="add-${i}" data-answer="${num1 + num2}">
+                `;
+                additionContainer.appendChild(questionDiv);
+            }
+            
+            // Generate 5 subtraction questions
+            for (let i = 1; i <= 5; i++) {
+                let num1 = getRandomTwoDigit();
+                let num2 = getRandomTwoDigit();
+                
+                // Ensure result is positive
+                if (num1 < num2) {
+                    [num1, num2] = [num2, num1];
+                }
+                
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <span class="question-number">${i}</span>
+                    ${num1} - ${num2} = 
+                    <input type="number" class="answer-input" id="sub-${i}" data-answer="${num1 - num2}">
+                `;
+                subtractionContainer.appendChild(questionDiv);
+            }
+        }
+        
+        // Check answers
+        function checkAnswers() {
+            let correctCount = 0;
+            let wrongCount = 0;
+            
+            // Check addition answers
+            for (let i = 1; i <= 5; i++) {
+                const input = document.getElementById(`add-${i}`);
+                const userAnswer = parseInt(input.value) || 0;
+                const correctAnswer = parseInt(input.dataset.answer);
+                
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                    input.style.borderColor = '#2a9d8f';
+                } else {
+                    wrongCount++;
+                    input.style.borderColor = '#ff6b6b';
+                }
+            }
+            
+            // Check subtraction answers
+            for (let i = 1; i <= 5; i++) {
+                const input = document.getElementById(`sub-${i}`);
+                const userAnswer = parseInt(input.value) || 0;
+                const correctAnswer = parseInt(input.dataset.answer);
+                
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                    input.style.borderColor = '#2a9d8f';
+                } else {
+                    wrongCount++;
+                    input.style.borderColor = '#ff6b6b';
+                }
+            }
+            
+            // Display results
+            document.getElementById('score').textContent = `${correctCount}/10`;
+            document.getElementById('correct-count').textContent = `Correct: ${correctCount}`;
+            document.getElementById('wrong-count').textContent = `Wrong: ${wrongCount}`;
+            document.getElementById('result-section').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Initialize the quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuestions();
+            
+            // Submit button event
+            document.getElementById('submit-btn').addEventListener('click', checkAnswers);
+            
+            // Restart button event
+            document.getElementById('restart-btn').addEventListener('click', function() {
+                generateQuestions();
+                document.getElementById('result-section').style.display = 'none';
+                
+                // Reset input borders
+                const inputs = document.querySelectorAll('.answer-input');
+                inputs.forEach(input => {
+                    input.style.borderColor = '#4ecdc4';
+                    input.value = '';
+                });
+            });
+            
+            // Allow pressing Enter to submit
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkAnswers();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
